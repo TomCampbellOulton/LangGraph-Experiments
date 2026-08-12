@@ -1,2 +1,9 @@
 LLM/models/*
 LLM/llama.cpp/*
+
+
+# Virtual environments
+.venv
+
+# My environment variables
+.env
