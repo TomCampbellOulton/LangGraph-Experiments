@@ -1,0 +1,12 @@
+{
+  "providers": {
+    "local-llm-using-llama-cpp": {
+      "baseUrl": "http://llama-cpp:8085/v1",
+      "api": "openai-completions",
+      "apiKey": "not-needed",
+      "models": [
+        { "id": "Qwen3.5-9B-Q4_K_M.gguf" }
+      ]
+    }
+  }
+}

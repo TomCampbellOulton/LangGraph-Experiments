@@ -1,13 +1,4 @@
-# Python-generated files
-__pycache__/
-*.py[oc]
-build/
-dist/
-wheels/
-*.egg-info
-
-# Virtual environments
-.venv
-
-# My environment variables
-*.env
+Docker Version/Agent/hf-cache/
+Docker Version/LLM/llama.cpp/
+Docker Version/Agent/hf-cache/
+Docker Version/LLM/llama.cpp/

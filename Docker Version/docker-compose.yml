@@ -1,0 +1,36 @@
+services:
+  agent:
+    build: ./Agent
+    env_file: .env
+    volumes:
+      - ./Agent/pi-config:/root/.pi/agent
+      - ./Agent/hf-cache:/app/hf-cache
+      - ./Agent/main.py:/app/main.py
+      - ./Agent/src:/app/src
+      
+      - ./Agent/workspace:/app/workspace
+    depends_on:
+      - llama-cpp
+    stdin_open: true
+    tty: true
+    networks: [agent-net]
+
+  llama-cpp:
+      build: ./LLM
+      volumes:
+        - ./LLM/llama.cpp:/src
+        - ./LLM/models:/src/models
+      command: ["-m", "/src/models/${LLAMA_CPP_MODEL}", "--port", "8085", "--host", "0.0.0.0"]
+      ports:
+        - "8085:8085"
+      networks: [agent-net]
+      deploy:
+        resources:
+          reservations:
+            devices:
+              - driver: nvidia
+                count: 1
+                capabilities: [gpu]
+  
+networks:
+  agent-net:
