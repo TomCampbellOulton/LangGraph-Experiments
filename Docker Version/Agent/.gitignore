@@ -9,3 +9,6 @@ wheels/
 
 # Our .env (nothing secret, just good practise)
 .env
+
+# Our project
+workspace/*
