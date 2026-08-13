@@ -5,3 +5,7 @@ build/
 dist/
 wheels/
 *.egg-info
+
+
+# Our .env (nothing secret, just good practise)
+.env
